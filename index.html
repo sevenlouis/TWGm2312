@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome to TWG</title>
+</head>
+
+<body>
+
+    <h1>Welcome to TWG!</h1>
+
+    <p id="countdown">Redirecting in 5 seconds...</p>
+
+    <script>
+        // 初始倒數秒數
+        let countdown = 5;
+
+        // 顯示倒數秒數的元素
+        let countdownElement = document.getElementById('countdown');
+
+        // 更新倒數秒數的函數
+        function updateCountdown() {
+            countdown--;
+            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+
+            // 如果倒數結束，進行跳轉
+            if (countdown <= 0) {
+                window.location.href = "https://reurl.cc/VN1q8N"; // 將此處的網址替換為你想要的目標網址
+            }
+        }
+
+        // 使用setInterval每秒更新一次倒數
+        let countdownInterval = setInterval(updateCountdown, 1000);
+
+        // 在5秒後清除Interval，停止更新倒數
+        setTimeout(function() {
+            clearInterval(countdownInterval);
+        }, 5000);
+    </script>
+
+</body>
+
+</html>
