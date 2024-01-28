@@ -23,18 +23,23 @@
             countdown--;
             countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
 
-            // 如果倒數結束，進行跳轉
+            // 如果倒數結束，停止更新倒數
             if (countdown <= 0) {
-                window.location.href = "https://reurl.cc/VN1q8N"; // 將此處的網址替換為你想要的目標網址
+                clearInterval(countdownInterval);
             }
         }
 
         // 使用setInterval每秒更新一次倒數
         let countdownInterval = setInterval(updateCountdown, 1000);
 
-        // 在5秒後清除Interval，停止更新倒數
+        // 在5秒後清除Interval，停止更新倒數並執行跳轉
         setTimeout(function() {
             clearInterval(countdownInterval);
+            // 使用<meta>標籤進行跳轉
+            let redirectMeta = document.createElement('meta');
+            redirectMeta.setAttribute('http-equiv', 'refresh');
+            redirectMeta.setAttribute('content', '0; URL=https://reurl.cc/VN1q8N');
+            document.head.appendChild(redirectMeta);
         }, 5000);
     </script>
 
